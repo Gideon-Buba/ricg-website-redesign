@@ -7,10 +7,11 @@ const Footer = () => (
       <div className="grid md:grid-cols-4 gap-10 mb-14">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
-              <span className="text-secondary-foreground font-heading font-bold text-base">R</span>
-            </div>
-            <span className="font-heading font-bold text-base tracking-tight">RICG</span>
+            <img
+              src="/rockbell-logo.jpeg"
+              alt="Rockbell International Centre for Governance"
+              className="h-10 w-auto object-contain"
+            />
           </div>
           <p className="text-sm opacity-50 leading-relaxed">
             Delivering unparalleled value through governance, consulting & training.

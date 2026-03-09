@@ -33,13 +33,11 @@ const Header = () => {
     >
       <div className="section-container flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-secondary-glow transition-colors duration-300">
-            <span className="text-secondary-foreground font-heading font-bold text-base">R</span>
-          </div>
-          <div className="hidden sm:block">
-            <span className="font-heading font-bold text-foreground text-base leading-tight block tracking-tight">RICG</span>
-            <span className="text-[10px] text-muted-foreground leading-none tracking-wide">Rockbel International</span>
-          </div>
+          <img
+            src="/rockbell-logo.jpeg"
+            alt="Rockbell International Centre for Governance"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">

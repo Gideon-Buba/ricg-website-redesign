@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Monitor, Users, GraduationCap, Briefcase, Building2, Landmark, Scale, ArrowRight } from "lucide-react";
+import { Monitor, Users, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-home.jpg";
 import Layout from "@/components/Layout";
@@ -13,11 +13,15 @@ const services = [
 ];
 
 const clients = [
-  { icon: Landmark, name: "Federal Ministry of Finance" },
-  { icon: Building2, name: "Bureau of Public Service Reforms" },
-  { icon: Scale, name: "Federal Ministry of Justice" },
-  { icon: Landmark, name: "National Assembly" },
-  { icon: Building2, name: "Office of the Head of Civil Service" },
+  { logo: "/fortis-logo.png", name: "Fortis" },
+  { logo: "/gis-logo.jpeg", name: "GIS" },
+  { logo: "/jamb-logo.png", name: "JAMB" },
+  { logo: "/nimet-logo.png", name: "NIMET" },
+  { logo: "/tetfund-logo.png", name: "TETFund" },
+  { logo: "/FMYD-logo.jpg", name: "Federal Ministry of Youth Development" },
+  { logo: "/coat-of-arms.png", name: "Federal Ministry of Transport" },
+  { logo: "/coat-of-arms.png", name: "Office of the SGF" },
+  { logo: "/coat-of-arms.png", name: "Federal Ministry of Finance, Budget & National Planning" },
 ];
 
 const Index = () => (
@@ -110,7 +114,7 @@ const Index = () => (
     </section>
 
     {/* Clients */}
-    <section className="py-20 md:py-28">
+    <section className="py-20 md:py-28 overflow-hidden">
       <div className="section-container">
         <FadeIn>
           <p className="section-label text-center mb-4">Trusted By</p>
@@ -118,18 +122,20 @@ const Index = () => (
         <FadeIn delay={0.1}>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-14 leading-tight">Our Clients</h2>
         </FadeIn>
-        <StaggerContainer className="flex flex-wrap justify-center gap-10 md:gap-16">
-          {clients.map((c) => (
-            <StaggerItem key={c.name}>
-              <div className="flex flex-col items-center gap-3 opacity-40 hover:opacity-100 transition-all duration-500 cursor-default group">
-                <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center group-hover:bg-secondary/10 transition-colors duration-500">
-                  <c.icon size={28} className="text-muted-foreground group-hover:text-secondary transition-colors duration-500" />
-                </div>
-                <span className="text-xs text-muted-foreground text-center max-w-[120px] leading-tight">{c.name}</span>
+      </div>
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+        <div className="flex [animation:marquee_30s_linear_infinite] hover:[animation-play-state:paused]">
+          {[...clients, ...clients].map((c, i) => (
+            <div key={i} className="flex flex-col items-center gap-3 opacity-50 hover:opacity-100 transition-all duration-500 cursor-default group shrink-0 mx-10">
+              <div className="w-24 h-16 flex items-center justify-center">
+                <img src={c.logo} alt={c.name} className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
               </div>
-            </StaggerItem>
+              <span className="text-xs text-muted-foreground text-center max-w-[120px] leading-tight">{c.name}</span>
+            </div>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
 

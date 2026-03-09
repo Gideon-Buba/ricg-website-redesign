@@ -19,14 +19,14 @@
     --primary-foreground: 0 0% 100%;
     --primary-glow: 0 100% 50%;
 
-    --secondary: 143 53% 26%;
+    --secondary: 86 54% 51%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 143 53% 35%;
+    --secondary-glow: 86 54% 61%;
 
     --muted: 220 20% 96%;
     --muted-foreground: 220 10% 46%;
 
-    --accent: 143 53% 26%;
+    --accent: 86 54% 51%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -126,4 +126,9 @@
   .section-label {
     @apply text-xs font-semibold tracking-[0.2em] uppercase text-primary;
   }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
