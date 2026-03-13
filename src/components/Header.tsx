@@ -36,7 +36,7 @@ const Header = () => {
           <img
             src="/rockbell-logo.jpeg"
             alt="Rockbell International Centre for Governance"
-            className="h-10 w-auto object-contain"
+            className="h-14 w-auto object-contain"
           />
         </Link>
 
