@@ -12,6 +12,11 @@ const Footer = () => (
               alt="Rockbell International Centre for Governance"
               className="h-10 w-auto object-contain"
             />
+            <img
+              src="/rockbel.jpeg"
+              alt=""
+              className="h-8 w-auto object-contain"
+            />
           </div>
           <p className="text-sm opacity-50 leading-relaxed">
             Delivering unparalleled value through governance, consulting & training.

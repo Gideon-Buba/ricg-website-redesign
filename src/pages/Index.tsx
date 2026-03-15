@@ -31,15 +31,6 @@ const Index = () => (
       <img src={heroImg} alt="RICG professionals" className="absolute inset-0 w-full h-full object-cover scale-105" />
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
-      <motion.img
-        src="/rockbel.jpeg"
-        alt="Rockbel International Centre for Governance"
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="absolute top-6 right-8 hidden md:block w-56 h-56 lg:w-72 lg:h-72 object-cover opacity-15"
-        style={{ maskImage: "radial-gradient(circle, black 55%, transparent 75%)", WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 75%)" }}
-      />
       <div className="relative section-container py-24 w-full">
         <div className="max-w-2xl">
           <motion.p

@@ -38,6 +38,11 @@ const Header = () => {
             alt="Rockbell International Centre for Governance"
             className="h-14 w-auto object-contain"
           />
+          <img
+            src="/rockbel.jpeg"
+            alt=""
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
