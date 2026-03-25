@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Monitor, Users, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-home.jpg";
 import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 
@@ -28,7 +27,7 @@ const Index = () => (
   <Layout>
     {/* Hero */}
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <img src={heroImg} alt="RICG professionals" className="absolute inset-0 w-full h-full object-cover scale-105" />
+      <img src="/rcig-images/group-photo.jpeg" alt="RICG professionals" className="absolute inset-0 w-full h-full object-cover scale-105" />
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
       <div className="relative section-container py-24 w-full">
