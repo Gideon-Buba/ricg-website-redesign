@@ -16,15 +16,15 @@ const Contact = () => {
     setSending(true);
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        "service_cuocq1m",
+        "template_i2a68rq",
         {
           from_name: form.name,
           from_email: form.email,
           subject: form.subject,
           message: form.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        "Y-RAt3N4zp1W7INtz"
       );
       setSent(true);
       toast.success("Message sent successfully! We'll get back to you soon.");
