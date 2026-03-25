@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { toast } from "sonner";
 import { FadeIn } from "@/components/Animations";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -13,15 +14,29 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // Simulate send
-    await new Promise((r) => setTimeout(r, 1200));
-    setSending(false);
-    setSent(true);
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setTimeout(() => {
-      setSent(false);
-      setForm({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      setSent(true);
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      setTimeout(() => {
+        setSent(false);
+        setForm({ name: "", email: "", subject: "", message: "" });
+      }, 3000);
+    } catch {
+      toast.error("Failed to send message. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -140,7 +155,7 @@ const Contact = () => {
                 <div className="flex flex-col gap-6 mb-10">
                   {[
                     { icon: MapPin, label: "Office Address", value: "Suite 204, Plot 1234 Somewhere Street,\nWuse 2, Abuja, Nigeria" },
-                    { icon: Mail, label: "Email", value: "info@ricg.com.ng", href: "mailto:info@ricg.com.ng" },
+                    { icon: Mail, label: "Email", value: "info@kprockbel.com.ng", href: "mailto:info@kprockbel.com.ng" },
                     { icon: Phone, label: "Phone", value: "+234 800 000 0000", href: "tel:+2348000000000" },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-4 group">

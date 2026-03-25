@@ -59,7 +59,7 @@ const Footer = () => (
           <h4 className="font-heading font-semibold text-sm mb-5 opacity-70 tracking-wide uppercase">Contact</h4>
           <div className="flex flex-col gap-4 text-sm opacity-50">
             <span className="flex items-start gap-2.5"><MapPin size={15} className="mt-0.5 shrink-0" /> Abuja, Nigeria</span>
-            <a href="mailto:info@ricg.com.ng" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Mail size={15} className="shrink-0" /> info@ricg.com.ng</a>
+            <a href="mailto:info@kprockbel.com.ng" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Mail size={15} className="shrink-0" /> info@kprockbel.com.ng</a>
             <a href="tel:+2348000000000" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Phone size={15} className="shrink-0" /> +234 800 000 0000</a>
           </div>
         </div>
