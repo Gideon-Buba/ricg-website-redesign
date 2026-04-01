@@ -51,7 +51,7 @@ const services = [
     icon: Compass,
     title: "Strategic Retreat Planning & Facilitation",
     desc: "Corporate retreats, strategic planning sessions, stakeholder engagement, and team alignment programmes.",
-    image: "/rcig-images/sensitization-exercise-team.jpeg",
+    image: "/rcig-images/updated-group-image.jpg",
   },
 ];
 

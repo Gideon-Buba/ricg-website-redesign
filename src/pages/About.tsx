@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Target, Eye, Heart, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
@@ -14,7 +14,7 @@ const galleryImages = [
   { src: "/rcig-images/boardroom-session.jpeg", span: "col-span-2 row-span-2" },
   { src: "/rcig-images/training-workshop.jpeg", span: "" },
   { src: "/rcig-images/certificate-presentation.jpeg", span: "" },
-  { src: "/rcig-images/sensitization-exercise-team.jpeg", span: "" },
+  { src: "/rcig-images/updated-group-image.jpg", span: "" },
   { src: "/rcig-images/seminar-session.jpeg", span: "" },
   { src: "/rcig-images/capacity-building-training.jpeg", span: "col-span-2" },
   { src: "/rcig-images/group-photo.jpeg", span: "" },
@@ -23,6 +23,14 @@ const galleryImages = [
 
 const About = () => {
   const [lightbox, setLightbox] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <Layout>
