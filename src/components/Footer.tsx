@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { phoneNumbers } from "@/lib/contact";
 
 const Footer = () => (
   <footer className="bg-foreground text-background">
@@ -60,7 +61,14 @@ const Footer = () => (
           <div className="flex flex-col gap-4 text-sm opacity-50">
             <span className="flex items-start gap-2.5"><MapPin size={15} className="mt-0.5 shrink-0" /> Abuja, Nigeria</span>
             <a href="mailto:info@kprockbel.com.ng" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Mail size={15} className="shrink-0" /> info@kprockbel.com.ng</a>
-            <a href="tel:+2348000000000" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Phone size={15} className="shrink-0" /> +234 800 000 0000</a>
+            <div className="flex items-start gap-2.5">
+              <Phone size={15} className="mt-0.5 shrink-0" />
+              <div className="flex flex-col gap-1.5">
+                {phoneNumbers.map((p) => (
+                  <a key={p.tel} href={`tel:${p.tel}`} className="hover:opacity-100 transition-opacity">{p.display}</a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

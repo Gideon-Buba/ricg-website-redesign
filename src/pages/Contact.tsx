@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { phoneNumbers } from "@/lib/contact";
 import Layout from "@/components/Layout";
 import { toast } from "sonner";
 import { FadeIn } from "@/components/Animations";
@@ -156,7 +157,7 @@ const Contact = () => {
                   {[
                     { icon: MapPin, label: "Office Address", value: "Suite 204, Plot 1234 Somewhere Street,\nWuse 2, Abuja, Nigeria" },
                     { icon: Mail, label: "Email", value: "info@kprockbel.com.ng", href: "mailto:info@kprockbel.com.ng" },
-                    { icon: Phone, label: "Phone", value: "+234 800 000 0000", href: "tel:+2348000000000" },
+                    { icon: Phone, label: "Phone", links: phoneNumbers.map((p) => ({ value: p.display, href: `tel:${p.tel}` })) },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-4 group">
                       <div className="w-12 h-12 rounded-xl bg-secondary/8 flex items-center justify-center shrink-0 group-hover:bg-secondary/15 transition-colors duration-300">
@@ -164,7 +165,15 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-foreground text-sm mb-1">{item.label}</h4>
-                        {item.href ? (
+                        {item.links ? (
+                          <div className="flex flex-col gap-1">
+                            {item.links.map((link) => (
+                              <a key={link.href} href={link.href} className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                                {link.value}
+                              </a>
+                            ))}
+                          </div>
+                        ) : item.href ? (
                           <a href={item.href} className="text-muted-foreground text-sm hover:text-primary transition-colors">
                             {item.value}
                           </a>
