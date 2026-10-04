@@ -1,13 +1,33 @@
 import { useState, useEffect } from "react";
-import { Target, Eye, Heart, X, Check } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Target, Eye, Heart, X, Check, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 
 const values = [
-  { icon: Target, title: "Mission", desc: "To deliver innovative, world-class consulting and training solutions that drive sustainable development across Africa." },
-  { icon: Eye, title: "Vision", desc: "To be the foremost governance and consulting centre of excellence in Nigeria and across the continent." },
-  { icon: Heart, title: "Core Values", desc: "Integrity, Excellence, Innovation, Client Focus, and Accountability guide everything we do." },
+  {
+    icon: Eye,
+    title: "Our Vision",
+    desc: [
+      "To be a world class consulting outfit providing strategic and robust management solutions to meet the demands of the dynamic and advanced global Public Service environment.",
+    ],
+  },
+  {
+    icon: Target,
+    title: "Our Mission",
+    desc: [
+      "We provide a broad range of information-driven management consultancy and capacity building & training services to meet the needs of our esteemed and valuable Public Service clients.",
+    ],
+  },
+  {
+    icon: Heart,
+    title: "Our Philosophies",
+    desc: [
+      "Committed to a culture of value-addition to the businesses of our Public Service institutions.",
+      "Committed to a knowledge-based environment that permits the advancement of career programmes of the Public Service workforce.",
+    ],
+  },
 ];
 
 const ceoTrainingAreas = [
@@ -71,7 +91,7 @@ const About = () => {
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-background mb-4 leading-tight">Who We Are</h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-background/70 text-lg max-w-xl mx-auto">Building capacity, driving change, delivering results</p>
+            <p className="text-background/70 text-lg max-w-xl mx-auto">A World Class Public Service Knowledge Centre</p>
           </FadeIn>
         </div>
       </section>
@@ -83,15 +103,24 @@ const About = () => {
             <div>
               <FadeIn direction="left">
                 <p className="section-label mb-4">About RICG</p>
-                <h2 className="font-heading text-3xl font-bold text-foreground mb-6 leading-tight">Consulting, Strategy, Training & Research</h2>
-                <p className="text-muted-foreground leading-relaxed mb-5">
-                  Rockbel International Centre for Governance (RICG) is a Consulting (Financial & Management), Strategy, Training and Research
-                  Consultants based in Nigeria. We specialise in providing high-quality advisory services to public and private sector organisations.
+                <h2 className="font-heading text-3xl font-bold text-foreground mb-6 leading-tight">A One-Stop Centre for Knowledge on Public Governance</h2>
+                <p className="text-muted-foreground leading-relaxed text-justify hyphens-auto mb-5">
+                  The Rockbel International Centre for Governance (RICG) is established as a one-stop solution centre for knowledge transfer on
+                  public governance, collaborating with key stakeholders in the industry to build a world class public service and contribute
+                  to national development.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Our team of experienced professionals brings deep sectoral knowledge and a commitment to excellence,
-                  ensuring that every engagement delivers measurable value and lasting impact.
+                <p className="text-muted-foreground leading-relaxed text-justify hyphens-auto mb-5">
+                  It serves as a centralised, specialised institution aimed at bridging capacity gaps in the public service through tailored
+                  training, research and capacity-building programmes, directly improving public service delivery.
                 </p>
+                <p className="text-muted-foreground leading-relaxed text-justify hyphens-auto">
+                  The establishment of RICG is a private sector investment in human capital that will ensure sustainable development, improved
+                  governance and a modernised public sector.
+                </p>
+                <Link to="/knowledge-hubs" className="inline-flex items-center gap-2 mt-8 font-semibold text-primary group">
+                  Explore our Knowledge Hubs
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </FadeIn>
             </div>
             <FadeIn direction="right" delay={0.2}>
@@ -107,18 +136,32 @@ const About = () => {
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="bg-muted/50 py-20">
-        <div className="section-container max-w-3xl text-center">
+      {/* Strategic Statements */}
+      <section className="bg-muted/30 py-20 md:py-28">
+        <div className="section-container">
           <FadeIn>
-            <div className="relative">
-              <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-8xl text-primary/10 font-heading font-bold leading-none select-none">"</span>
-              <blockquote className="font-heading text-2xl md:text-3xl font-semibold text-foreground leading-relaxed relative z-10">
-                Our confidence is derived from our experience and passion to add value
-              </blockquote>
-              <div className="w-16 h-1 bg-primary rounded-full mx-auto mt-8" />
-            </div>
+            <p className="section-label text-center mb-4">Our Foundation</p>
           </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-14 leading-tight">Strategic Statements</h2>
+          </FadeIn>
+          <StaggerContainer className="grid sm:grid-cols-3 gap-5">
+            {values.map((v) => (
+              <StaggerItem key={v.title}>
+                <div className="service-card text-center h-full">
+                  <div className="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
+                    <v.icon className="text-primary" size={26} />
+                  </div>
+                  <h3 className="font-heading font-bold text-base text-foreground mb-3">{v.title}</h3>
+                  <div className="flex flex-col gap-3">
+                    {v.desc.map((d) => (
+                      <p key={d} className="text-muted-foreground text-sm leading-relaxed">{d}</p>
+                    ))}
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
@@ -245,14 +288,14 @@ const About = () => {
               <div className="mt-6 text-center md:text-left">
                 <h3 className="font-heading text-2xl font-bold text-foreground">Sandra Makwin</h3>
                 <p className="text-primary font-medium mt-1">Administrative Manager</p>
-                <p className="text-muted-foreground text-sm mt-2">Dip. (Marketing), B.Sc. (Bus. Admin.), Master's Degree</p>
+                <p className="text-muted-foreground text-sm mt-2">Dip. (Marketing), B.Sc. (Bus. Admin.), Master's (HRM)</p>
               </div>
             </FadeIn>
             <FadeIn direction="right" delay={0.2} className="md:col-span-3">
               <p className="text-muted-foreground leading-relaxed text-justify hyphens-auto mb-5">
                 Sandra Makwin is an experienced administrator with over 10 years in public service and private sector operations. She holds a
                 Diploma in Marketing from Plateau State Polytechnic, a B.Sc. in Business Administration from Federal University Birnin Kebbi,
-                and a Master's Degree from Ahmadu Bello University, Zaria.
+                and a Master's Degree in Human Resource Management (HRM) from Ahmadu Bello University, Zaria.
               </p>
               <p className="text-muted-foreground leading-relaxed text-justify hyphens-auto mb-5">
                 Her career spans the Industrial Training Fund, the National Institute for Policy and Strategic Studies, the Federal Inland
@@ -300,33 +343,23 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20 md:py-28">
-        <div className="section-container">
+      {/* Quote */}
+      <section className="bg-muted/50 py-20">
+        <div className="section-container max-w-3xl text-center">
           <FadeIn>
-            <p className="section-label text-center mb-4">Our Foundation</p>
+            <div className="relative">
+              <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-8xl text-primary/10 font-heading font-bold leading-none select-none">"</span>
+              <blockquote className="font-heading text-2xl md:text-3xl font-semibold text-foreground leading-relaxed relative z-10">
+                Our confidence is derived from our experience and passion to add value
+              </blockquote>
+              <div className="w-16 h-1 bg-primary rounded-full mx-auto mt-8" />
+            </div>
           </FadeIn>
-          <FadeIn delay={0.1}>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-14 leading-tight">What Drives Us</h2>
-          </FadeIn>
-          <StaggerContainer className="grid sm:grid-cols-3 gap-5">
-            {values.map((v) => (
-              <StaggerItem key={v.title}>
-                <div className="service-card text-center h-full">
-                  <div className="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
-                    <v.icon className="text-primary" size={26} />
-                  </div>
-                  <h3 className="font-heading font-bold text-base text-foreground mb-3">{v.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
         </div>
       </section>
 
       {/* Gallery */}
-      <section className="bg-muted/30 py-20 md:py-28">
+      <section className="py-20 md:py-28">
         <div className="section-container">
           <FadeIn>
             <p className="section-label text-center mb-4">In The Field</p>

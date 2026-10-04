@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
-import { Monitor, Users, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
+import { knowledgeHubs } from "@/lib/knowledgeHubs";
 
-const services = [
-  { icon: Monitor, title: "ICT Services", desc: "Cutting-edge technology solutions for digital transformation and e-governance." },
-  { icon: Users, title: "Capacity Building", desc: "Institutional strengthening and human capital development programs." },
-  { icon: GraduationCap, title: "Leadership Training", desc: "Executive leadership programmes tailored for public and private sectors." },
-  { icon: Briefcase, title: "Management Consultancy", desc: "Strategic advisory for organisational growth and operational excellence." },
-];
 
 const clients = [
   { logo: "/fortis-logo.png", name: "Fortis" },
@@ -54,7 +49,7 @@ const Index = () => (
             transition={{ delay: 0.55, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link to="/services" className="btn-primary inline-flex items-center gap-2 group text-base py-4 px-10">
+            <Link to="/knowledge-hubs" className="btn-primary inline-flex items-center gap-2 group text-base py-4 px-10">
               Discover What We Do
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -87,28 +82,36 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Service Cards */}
+    {/* Knowledge Hubs */}
     <section className="bg-muted/50 py-20 md:py-28">
       <div className="section-container">
         <FadeIn>
           <p className="section-label text-center mb-4">What We Offer</p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-14 leading-tight">Our Core Areas</h2>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-14 leading-tight">Our Knowledge Hubs</h2>
         </FadeIn>
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((s) => (
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {knowledgeHubs.map((s) => (
             <StaggerItem key={s.title}>
               <div className="service-card text-center group cursor-default h-full">
                 <div className="w-14 h-14 rounded-xl bg-secondary/8 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/15 group-hover:scale-110 transition-all duration-500">
                   <s.icon className="text-secondary" size={26} />
                 </div>
                 <h3 className="font-heading font-bold text-base text-foreground mb-3">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{s.summary}</p>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
+        <FadeIn delay={0.1}>
+          <div className="text-center mt-12">
+            <Link to="/knowledge-hubs" className="btn-primary inline-flex items-center gap-2 group">
+              Explore the Knowledge Hubs
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </FadeIn>
       </div>
     </section>
 

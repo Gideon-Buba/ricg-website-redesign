@@ -156,7 +156,7 @@ const Contact = () => {
                 <div className="flex flex-col gap-6 mb-10">
                   {[
                     { icon: MapPin, label: "Office Address", value: "Suite 204, Plot 1234 Somewhere Street,\nWuse 2, Abuja, Nigeria" },
-                    { icon: Mail, label: "Email", value: "info@kprockbel.com.ng", href: "mailto:info@kprockbel.com.ng" },
+                    { icon: Mail, label: "Email", value: "info@ricgcentre.com.ng", href: "mailto:info@ricgcentre.com.ng" },
                     { icon: Phone, label: "Phone", links: phoneNumbers.map((p) => ({ value: p.display, href: `tel:${p.tel}` })) },
                   ].map((item) => (
                     <div key={item.label} className="flex items-start gap-4 group">

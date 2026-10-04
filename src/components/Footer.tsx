@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { phoneNumbers } from "@/lib/contact";
+import { knowledgeHubs } from "@/lib/knowledgeHubs";
 
 const Footer = () => (
   <footer className="bg-foreground text-background">
@@ -30,7 +31,7 @@ const Footer = () => (
             {[
               { label: "Home", path: "/" },
               { label: "About Us", path: "/about" },
-              { label: "Our Services", path: "/services" },
+              { label: "Knowledge Hubs", path: "/knowledge-hubs" },
               { label: "Contact", path: "/contact" },
             ].map((link) => (
               <Link
@@ -46,11 +47,11 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-heading font-semibold text-sm mb-5 opacity-70 tracking-wide uppercase">Services</h4>
+          <h4 className="font-heading font-semibold text-sm mb-5 opacity-70 tracking-wide uppercase">Knowledge Hubs</h4>
           <nav className="flex flex-col gap-3">
-            {["ICT Services", "Leadership Training", "Management Consultancy", "Capacity Building"].map((s) => (
-              <Link key={s} to="/services" className="text-sm opacity-50 hover:opacity-100 transition-all duration-300">
-                {s}
+            {knowledgeHubs.map((hub) => (
+              <Link key={hub.title} to="/knowledge-hubs" className="text-sm opacity-50 hover:opacity-100 transition-all duration-300">
+                {hub.shortTitle}
               </Link>
             ))}
           </nav>
@@ -60,7 +61,7 @@ const Footer = () => (
           <h4 className="font-heading font-semibold text-sm mb-5 opacity-70 tracking-wide uppercase">Contact</h4>
           <div className="flex flex-col gap-4 text-sm opacity-50">
             <span className="flex items-start gap-2.5"><MapPin size={15} className="mt-0.5 shrink-0" /> Abuja, Nigeria</span>
-            <a href="mailto:info@kprockbel.com.ng" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Mail size={15} className="shrink-0" /> info@kprockbel.com.ng</a>
+            <a href="mailto:info@ricgcentre.com.ng" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Mail size={15} className="shrink-0" /> info@ricgcentre.com.ng</a>
             <div className="flex items-start gap-2.5">
               <Phone size={15} className="mt-0.5 shrink-0" />
               <div className="flex flex-col gap-1.5">
