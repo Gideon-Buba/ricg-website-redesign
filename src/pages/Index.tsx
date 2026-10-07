@@ -26,14 +26,14 @@ const Index = () => (
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
       <div className="relative section-container py-24 w-full">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="section-label text-primary-foreground/70 mb-6"
           >
-            ICT • Consulting • Training • Research
+            Rockbel International Centre for Governance
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -41,16 +41,33 @@ const Index = () => (
             transition={{ delay: 0.35, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-background leading-[1.1] mb-8"
           >
-            Delivering Unparalleled Value Through Governance, Consulting & Training
+            Welcome to RICG Knowledge Centre
           </motion.h1>
+          <motion.ul
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.6 }}
+            className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-10"
+          >
+            {knowledgeHubs.map((hub) => (
+              <li key={hub.title}>
+                <Link to="/knowledge-hubs" className="flex items-center gap-3 text-sm font-medium text-background/85 hover:text-background transition-colors">
+                  <span className="w-8 h-8 rounded-lg bg-background/10 flex items-center justify-center shrink-0">
+                    <hub.icon size={16} className="text-secondary" />
+                  </span>
+                  {hub.title}
+                </Link>
+              </li>
+            ))}
+          </motion.ul>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link to="/knowledge-hubs" className="btn-primary inline-flex items-center gap-2 group text-base py-4 px-10">
-              Discover What We Do
+              Explore the Knowledge Hubs
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link to="/about" className="btn-outline text-background border-background/30 hover:bg-background hover:text-foreground inline-flex items-center justify-center text-base py-4 px-10">
