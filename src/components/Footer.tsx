@@ -60,7 +60,7 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-semibold text-sm mb-5 opacity-70 tracking-wide uppercase">Contact</h4>
           <div className="flex flex-col gap-4 text-sm opacity-50">
-            <span className="flex items-start gap-2.5"><MapPin size={15} className="mt-0.5 shrink-0" /> Abuja, Nigeria</span>
+            <span className="flex items-start gap-2.5"><MapPin size={15} className="mt-0.5 shrink-0" /> Suite 107B, Samfa Plaza, Wuse Zone 5, Abuja</span>
             <a href="mailto:info@ricgcentre.com.ng" className="flex items-center gap-2.5 hover:opacity-100 transition-opacity"><Mail size={15} className="shrink-0" /> info@ricgcentre.com.ng</a>
             <div className="flex items-start gap-2.5">
               <Phone size={15} className="mt-0.5 shrink-0" />

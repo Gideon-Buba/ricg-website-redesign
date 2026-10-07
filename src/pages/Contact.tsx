@@ -153,9 +153,9 @@ const Contact = () => {
               <div>
                 <p className="section-label mb-3">Contact Info</p>
                 <h2 className="font-heading text-2xl font-bold text-foreground mb-8">Our Details</h2>
-                <div className="flex flex-col gap-6 mb-10">
+                <div className="flex flex-col gap-6">
                   {[
-                    { icon: MapPin, label: "Office Address", value: "Suite 204, Plot 1234 Somewhere Street,\nWuse 2, Abuja, Nigeria" },
+                    { icon: MapPin, label: "Office Address", value: "Suite 107B, Samfa Plaza,\nWuse Zone 5, Abuja" },
                     { icon: Mail, label: "Email", value: "info@ricgcentre.com.ng", href: "mailto:info@ricgcentre.com.ng" },
                     { icon: Phone, label: "Phone", links: phoneNumbers.map((p) => ({ value: p.display, href: `tel:${p.tel}` })) },
                   ].map((item) => (
@@ -183,11 +183,6 @@ const Contact = () => {
                       </div>
                     </div>
                   ))}
-                </div>
-
-                {/* Map Placeholder */}
-                <div className="rounded-2xl overflow-hidden border border-border bg-muted/50 h-56 flex items-center justify-center">
-                  <p className="text-muted-foreground/50 text-sm">Google Maps Embed — Abuja, Nigeria</p>
                 </div>
               </div>
             </FadeIn>
